@@ -35,7 +35,7 @@ Windows:
 
 ###·关闭虚拟环境
 
-	deactive
+	deactivate
 
 ###.优点
 隔离应用环境与主机环境，不影响其他应用。
@@ -110,6 +110,7 @@ django创建新用户：
 
 新建数据：
 	
+```python
 	>>> from blog.models import Category, Tag, Post
 	>>> from django.utils import timezone
 	>>> from django.contrib.auth.models import User
@@ -120,8 +121,10 @@ django创建新用户：
 	>>> p = Post(title='title test', body='body test', created_time=timezone.now(), modified_time=timezone.now(), category=c, author=user)
 	>>> p.save()
 	
+```  
 查询数据：
 
+```python
 	Category.objects.all()
 	Category.objects.get(name='category test')
 
@@ -134,6 +137,7 @@ django创建新用户：
 >	class Category(models.Model):
 >
 >	...
+```
 
 删除数据：
 
