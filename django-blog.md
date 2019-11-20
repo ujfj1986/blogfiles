@@ -2,16 +2,16 @@
 ---
 这个文件用于记录使用django搭建blog的过程中的步骤和配置命令等。
 
-##1. 使用python 虚拟环境
+## 1. 使用python 虚拟环境
 
-###·安装
+### ·安装
 
 	if python_version <= 3.4:
 		pip install virtaulenv
 	if python_version > 3.4:
 		默认已经安装
 
-###·创建虚拟环境
+### ·创建虚拟环境
 
 	mkdir blog_venv
 	cd blog_venv
@@ -20,7 +20,8 @@
 	if python_version > 3.4:
 		python -m venv .
 
-###·启用虚拟环境
+### ·启用虚拟环境
+
 Linux/Mac:
 
 	source ./bin/activate
@@ -33,20 +34,21 @@ Windows:
 
 	(blog-venv) ubuntu@ip-172-31-22-251:~/blog/blog-venv/bin$
 
-###·关闭虚拟环境
+### ·关闭虚拟环境
 
 	deactivate
 
-###.优点
+### .优点
+
 隔离应用环境与主机环境，不影响其他应用。
 
-##2. 创建blog工程
+## 2. 创建blog工程
 
-###. 安装django
+### . 安装django
 
 	pip install django == 1.10.6
 
-###. 创建django工程
+### . 创建django工程
 
 	cd ..
 	mkdir django-blog-src
@@ -60,16 +62,16 @@ Windows:
 	│   └── wsgi.py
 	└── manage.py #django配置管理
 
-###. 运行django服务
+### . 运行django服务
 
 	python manage.py runserver [0.0.0.0:8000]
 
-###. 配置django服务
+### . 配置django服务
 
 	LANGUAGE_CODE = 'en-us' #配置django语言，中文为'zh-hans'
 	TIME_ZONE = 'UTC' #配置django时区，'Asia/Shanghai'
 	
-###. 创建django APP
+### . 创建django APP
 
 	python manage.py startapp blog #最后一个参数为app name
 	tree blog
@@ -83,17 +85,22 @@ Windows:
 	├── tests.py
 	└── views.py
 
-##3. 创建数据库
-###. 数据库设计
+## 3. 创建数据库
+
+### . 数据库设计
+
 blog需要设计3个表：文章(Post)，分类(Category), 标签(Tag)。其中，一个文章只能有一个分类，可以有多个或者0个标签。
 
-###. 更改models
+### . 更改models
+
 修改blog models.py文件，加入3个表的定义，主要需要注意：
+
 > ####**所有模型必须继承自models.Model类**
 > models.ForeignKey()指定一对多关系。
 > models.ManyToManyField()指定多对多关系
 
-###. 数据库迁移（创建）
+### . 数据库迁移（创建）
+
 在**虚拟环境**下：
 
 	python manage.py makemigrations
@@ -106,7 +113,7 @@ django创建新用户：
 
 	python manage.py createsuperuser
 	
-###. 数据库访问
+### . 数据库访问
 
 新建数据：
 	
@@ -144,9 +151,10 @@ django创建新用户：
 	c = Category.objects.get(name='category test')
 	c.delete()
 
-##4. Django URL与视图
+## 4. Django URL与视图
 
-###. 绑定url与视图
+### . 绑定url与视图
+
 新建blog/urls.py文件
 
 	blog/urls.py
@@ -178,7 +186,8 @@ django创建新用户：
 	+   url(r'', include('blog.urls')), #参数r''表示前缀目录
 	]
 
-###视图模板
+### 视图模板
+
 在项目根目录下新建templates/blog/目录，新建文件templates/blog/index.html,完成后目录如下：
 
 	blogproject\
@@ -215,6 +224,7 @@ django创建新用户：
 	
 使用render函数渲染模板：
 
+``` python
 	blog/views.py
 	
 	from django.http import HttpResponse
@@ -226,7 +236,11 @@ django创建新用户：
 	                      'title': '我的博客首页', 
 	                      'welcome': '欢迎访问我的博客首页'
 	                  })
-	=======
+```
+
+---
+
+``` html
 	templates/blog/index.html
 	
 	<!DOCTYPE html>
@@ -239,4 +253,5 @@ django创建新用户：
 	<h1>{{ welcome }}</h1> //对应context中的welcome
 	</body>
 	</html>
+```
 	

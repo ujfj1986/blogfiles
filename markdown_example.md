@@ -122,10 +122,12 @@ screen shot 2017-07-14 at 1 20 27 am
 - [x] list syntax required (any unordered or ordered list supported)
 - [x] this is a complete item
 - [ ] this is an incomplete item
+
 表格
-First Header | Second Header
------------- | -------------
-Content from cell 1 | Content from cell 2
+
+First Header  | Second Header
+--------------------------- | -------------
+- [ ] Content from cell 1         |  Content from cell 2
 Content in the first column | Content in the second column
 扩展的语法
 表格

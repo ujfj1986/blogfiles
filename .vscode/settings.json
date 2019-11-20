@@ -1,0 +1,10 @@
+{
+    "sqltools.connections": [
+        {
+            "database": "/Users/shjj/workspace/3_python/django-blog-my/django-blog-src/blogproject/db.sqlite3",
+            "dialect": "SQLite",
+            "name": "django-blog"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}

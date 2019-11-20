@@ -40,6 +40,8 @@ puml 或者 plantuml 代码块中的内容将会被 PlantUML 渲染。
 
 如果代码中 @start... 没有被找到，那么 @startuml ... @enduml 将会被自动添加。
 
+[PlantUML link](http://plantuml.com/zh/)
+
 ###WaveDrom
 Markdown Preview Enhanced 使用 [WaveDrom](https://github.com/drom/wavedrom) 来渲染 digital timing diagram.
 
