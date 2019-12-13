@@ -7,6 +7,8 @@
 - [ ] gpsd gpsmon学习：用法与源码
 
 ### Doing:
+- [ ] 工作交接
+- [ ] [[HPC][US][Android P][20%] The wifi hotspot frequently automatic turns on and off on CID](https://jira.faradayfuture.com/browse/DFNINEONEIOV-19427)
 - [ ] Android binder用法学习
 - [ ] gps adr模式与非ADR模式对比测试
     - [ ] 偏航问题

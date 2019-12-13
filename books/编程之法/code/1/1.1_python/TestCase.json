@@ -1,0 +1,17 @@
+{
+    "version": 0.1,
+    "cases": [
+        {
+            "name" : "case1",
+            "string": "abcdef",
+            "number": 2,
+            "result": "cdefab"
+        },
+        {
+            "name": "case2",
+            "string": "abcdef",
+            "number": 3,
+            "result": "defabc"
+        }
+    ]
+}
